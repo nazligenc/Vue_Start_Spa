@@ -1,6 +1,6 @@
 <template>
     <navbar :pages="pages" :activePage="activePage" :nav-link-click="(index)=>activePage=index"></navbar>
-    <page-viewer :page="pages[activePage]"></page-viewer>
+    <page-viewer v-if="pages.length>0":page="pages[activePage]"></page-viewer>
 </template>
 <script>
 import PageViewer from './components/PageViewer.vue';
