@@ -5,11 +5,11 @@
              <div class="container-fluid">
                 <a class="navbar-brand" href="#">My Vue</a>
             <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
-                <li v-for="(page,index) in pages" :key="index" class="nav-item">
+                <li v-for="(page,index) in publishedPages" :key="index" class="nav-item">
                     <navbar-link
                         :page="page"
                         :isActive="activePage === index"
-                        @click.prevent=navLinkClick(index)
+                        @click.prevent="navLinkClick(index)"
 >
                     </navbar-link>
                 </li>
@@ -27,6 +27,12 @@
 <script>
 import NavbarLink from './NavbarLink.vue';
 export default{
+    computed:{
+        publishedPages(){
+            return this.pages.filter(page=>page.published);
+        }
+        
+    },
     components:{
        NavbarLink 
     },
