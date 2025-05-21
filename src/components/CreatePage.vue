@@ -69,8 +69,8 @@ export default{
                 alert('Please fill all fields');
                 return;
             }
-            this.pageCreated({
-                pageTitle: this.pageTitle,
+            this.$emit('page-created',{
+                 pageTitle: this.pageTitle,
                 content:this.content,
                 link:{
                     text:this.linkText,
@@ -78,10 +78,8 @@ export default{
 
                 },
                 published:this.published
-
-                
-                
-            }),
+            })
+        
             this.pageTitle='';
             this.content='';
             this.linkText='';
